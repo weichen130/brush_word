@@ -3,11 +3,18 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "test": "ng test",
+    "start": "npm run dev ",
+    "dev": "ng serve  --host=0.0.0.0 --live-reload=false --port=4201 --disable-host-check   --proxy-config proxy.conf.dev.js  --environment=dev",
+    "qa": "ng serve  --live-reload=false --port=8000 --disable-host-check  --proxy-config proxy.conf.qa.js    --environment=prod",
     "lint": "ng lint",
+    "build": "ng build",
+    "qaBuild": "ng build --prod --environment=prod --namedChunks=true",
+    "prodBuild": "ng build --prod --environment=prod",
+    "test": "ng test",
+    "testForLunix": "ng test --browsers PhantomJS --code-coverage --single-run=true --watch=false",
+    "testForWindow": "ng test --browsers Chrome --code-coverage ",
     "e2e": "ng e2e"
+
   },
   "private": true,
   "dependencies": {
